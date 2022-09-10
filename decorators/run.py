@@ -20,7 +20,7 @@ class AbstractInvoice(ABC):
     def __call__(self, items: List[InvoiceItem]):
         self._items = items
         if self._invoice:
-            self._itesm = self._invoice(items)
+           self._invoice(items)
         self.modify_invoice_content()
         return self._items
 
@@ -67,17 +67,17 @@ class FreePLU001(AbstractInvoice):
 
 
 if __name__ == "__main__":
-    invoice_item = [
+    invoice_items = [
         InvoiceItem("001", "Bier Pilsner", 1.2, 15),
         InvoiceItem("002", "Heineken", 1.5, 10),
         InvoiceItem("001", "Bier Pilsner", 1.2, 4),
     ]
 
     a = DiscountIfTotal()
-    b = FreePLU001(a)
+    b = FreePLU001(a) 
     c = HappyOurs(b)
     print("Original invoice:")
-    print(invoice_item)
-    invoice_item = c(invoice_item)
+    print(invoice_items)
+    invoice_items = c(invoice_items)
     print("Modified invoice:")
-    print(invoice_item)
+    print(invoice_items)
