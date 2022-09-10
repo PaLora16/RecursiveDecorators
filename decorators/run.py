@@ -20,7 +20,7 @@ class AbstractInvoice(ABC):
     def __call__(self, items: List[InvoiceItem]):
         self._items = items
         if self._invoice:
-            self._itesm = self._invoice(items)
+           self._invoice(items)
         self.modify_invoice_content()
         return self._items
 
