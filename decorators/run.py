@@ -35,7 +35,7 @@ class DiscountIfTotal(AbstractInvoice):
     """
 
     def modify_invoice_content(self):
-        if (_ := sum(item.price * item.quantity for item in self._items)) > 30:
+        if sum(item.price * item.quantity for item in self._items) > 30:
             print("Discount to all items..")
             for item in self._items:
                 item.price = round(item.price * 0.95, 2)
@@ -48,7 +48,7 @@ class HappyOurs(AbstractInvoice):
 
     def modify_invoice_content(self):
         now_hour = datetime.datetime.now().hour
-        if now_hour in (14, 15, 16):
+        if now_hour in (14, 15, 16, 17):
             print("Happy ours applied..")
             for item in self._items:
                 if item.plu == "002":
