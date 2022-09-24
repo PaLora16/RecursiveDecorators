@@ -57,7 +57,7 @@ class HappyOurs(AbstractInvoice):
 
 class FreePLU001(AbstractInvoice):
     """
-    if more than 5 of plu 001 -> one beer free of charge
+    if more than 5 of plu 001 -> one  beer free of charge
     """
 
     def modify_invoice_content(self):
