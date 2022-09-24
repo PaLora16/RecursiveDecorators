@@ -61,7 +61,7 @@ class FreePLU001(AbstractInvoice):
     """
 
     def modify_invoice_content(self):
-        if (_ := sum(item.quantity for item in self._items if item.plu == "001")) > 5:
+        if sum(item.quantity for item in self._items if item.plu == "001") > 5:
             print("Free beer added..")
             self._items.append(InvoiceItem("001", "Bier Pilsner", 0, 1))
 
